@@ -88,6 +88,7 @@ CLOUDINARY_API_SECRET=your_api_secret
 ## ⚙️ Installation & Setup
 
 1. **Clone the repository and install dependencies**:
+
    ```bash
    npm install
    ```
@@ -96,6 +97,7 @@ CLOUDINARY_API_SECRET=your_api_secret
    Set up your `.env` file as shown above.
 
 3. **Run the server in development mode**:
+
    ```bash
    npm run dev
    ```
@@ -113,28 +115,28 @@ Default server port will be `http://localhost:8080` (or as defined in your `.env
 
 ### 👤 User Endpoints (`/user`)
 
-| Method | Endpoint | Auth | Description |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/user/register` | No | Register a new user (`multipart/form-data` with `profilePic`) |
-| `POST` | `/user/login` | No | Authenticate user & return JWT token |
-| `GET` | `/user/` | Yes | Get list of all users |
-| `GET` | `/user/:id` | Yes | Get details of a specific user |
-| `POST` | `/user/` | Yes | Update user details & profile picture |
-| `DELETE`| `/user/:id` | Yes | Delete user by ID |
+| Method   | Endpoint         | Auth | Description                                                   |
+| :------- | :--------------- | :--- | :------------------------------------------------------------ |
+| `POST`   | `/user/register` | No   | Register a new user (`multipart/form-data` with `profilePic`) |
+| `POST`   | `/user/login`    | No   | Authenticate user & return JWT token                          |
+| `GET`    | `/user/`         | Yes  | Get list of all users                                         |
+| `GET`    | `/user/:id`      | Yes  | Get details of a specific user                                |
+| `POST`   | `/user/`         | Yes  | Update user details & profile picture                         |
+| `DELETE` | `/user/:id`      | Yes  | Delete user by ID                                             |
 
-*Note: For authenticated routes, pass `Authorization: Bearer <token>` in headers.*
+_Note: For authenticated routes, pass `Authorization: Bearer <token>` in headers._
 
 ---
 
 ### 🎮 Room Endpoints (`/room`)
 
-| Method | Endpoint | Auth | Description |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/room/create` | Yes | Create a new game room |
-| `POST` | `/room/join` | Yes | Join an existing room via code |
-| `GET` | `/room/` | Yes | Retrieve room list |
-| `GET` | `/room/:id` | Yes | Get room details by room ID |
-| `POST` | `/room/updateTable` | Yes | Update game board state & check game result |
+| Method | Endpoint            | Auth | Description                                 |
+| :----- | :------------------ | :--- | :------------------------------------------ |
+| `POST` | `/room/create`      | Yes  | Create a new game room                      |
+| `POST` | `/room/join`        | Yes  | Join an existing room via code              |
+| `GET`  | `/room/`            | Yes  | Retrieve room list                          |
+| `GET`  | `/room/:id`         | Yes  | Get room details by room ID                 |
+| `POST` | `/room/updateTable` | Yes  | Update game board state & check game result |
 
 ---
 
@@ -143,10 +145,12 @@ Default server port will be `http://localhost:8080` (or as defined in your `.env
 Connect to the Socket.IO server on `http://localhost:8080`.
 
 ### Client Listener Events
+
 - `joined_room`: Emitted to room members when a new player enters.
 - `receive_table`: Emitted to room members when game board state is updated.
 
 ### Client Emitter Events
+
 - `join_room` (`roomId`): Joins a specific Socket room.
 - `send_table` (`{ roomId, message }`): Broadcasts updated game payload to other player in the room.
 
